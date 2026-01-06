@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://y4o6qgd0qwbj"]
+
+[ext_resource type="Script" uid="uid://dt2cbo0umocch" path="res://scripts/Level Finished.gd" id="1_nhxoo"]
+[ext_resource type="Texture2D" uid="uid://bsxr8eaogsva0" path="res://assets/sprites/world_tileset.png" id="2_5ieuq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa2l1"]
+atlas = ExtResource("2_5ieuq")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2gm0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa2l1")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bphau"]
+size = Vector2(14, 14)
+
+[node name="Level Finished" type="Area2D"]
+script = ExtResource("1_nhxoo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k2gm0")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bphau")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
