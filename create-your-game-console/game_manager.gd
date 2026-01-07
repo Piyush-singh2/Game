@@ -1,6 +1,7 @@
 extends Node
 
-@onready var score_label: Label = $Label
+
+@onready var score_label: Label = $"../player/Camera2D/Label2"
 
 
 var score = 0

@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvqtf2r20wxps"]
+
+[ext_resource type="Script" uid="uid://duocap3wjp3ck" path="res://scripts/levelsmenu.gd" id="1_5ekxl"]
+[ext_resource type="Texture2D" uid="uid://ce02o2jwksltt" path="res://assets/sprites/levels_page.png" id="2_ly2og"]
+[ext_resource type="FontFile" uid="uid://dgd61wm5gwimo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_jj4e6"]
+
+[node name="Levels" type="Node2D"]
+script = ExtResource("1_5ekxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(569.49994, 319)
+scale = Vector2(0.41228688, 0.42838544)
+texture = ExtResource("2_ly2og")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="level1" type="Button" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 152.0
+offset_top = 256.0
+offset_right = 192.0
+offset_bottom = 296.0
+theme_override_fonts/font = ExtResource("3_jj4e6")
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="level2" type="Button" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 280.0
+offset_top = 256.0
+offset_right = 320.0
+offset_bottom = 296.0
+theme_override_fonts/font = ExtResource("3_jj4e6")
+theme_override_font_sizes/font_size = 32
+text = "2"
+
+[node name="levell3" type="Button" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 408.0
+offset_top = 256.0
+offset_right = 448.0
+offset_bottom = 296.0
+theme_override_fonts/font = ExtResource("3_jj4e6")
+theme_override_font_sizes/font_size = 32
+text = "3"
+
+[connection signal="pressed" from="Control/level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Control/level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Control/levell3" to="." method="_on_levell_3_pressed"]

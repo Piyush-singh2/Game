@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c66yy0gldt17s"]
+
+[ext_resource type="Script" uid="uid://cgs4kh10q4y6b" path="res://scripts/death_scene.gd" id="1_vcjmr"]
+[ext_resource type="FontFile" uid="uid://dgd61wm5gwimo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_dkhfj"]
+[ext_resource type="Texture2D" uid="uid://coc8dq265nyw4" path="res://assets/sprites/deathScene.png" id="3_mr0a8"]
+
+[node name="DeathScene" type="Node2D"]
+script = ExtResource("1_vcjmr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="Button" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 487.0
+offset_top = 331.0
+offset_right = 655.0
+offset_bottom = 379.0
+theme_override_fonts/font = ExtResource("2_dkhfj")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="Restart" type="Button" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 421.0
+offset_top = 222.0
+offset_right = 699.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("2_dkhfj")
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="DeathScene" type="Sprite2D" parent="."]
+position = Vector2(576, 323)
+scale = Vector2(0.7499999, 0.6308594)
+texture = ExtResource("3_mr0a8")
+
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
