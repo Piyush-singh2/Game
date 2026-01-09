@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bukmewys1se0t"]
+
+[ext_resource type="Script" uid="uid://dkj8264ts08pw" path="res://scripts/level_cleared.gd" id="1_f7xcr"]
+[ext_resource type="FontFile" uid="uid://dgd61wm5gwimo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_4jpot"]
+[ext_resource type="Texture2D" uid="uid://cjbsbpacuson0" path="res://assets/sprites/level cleared.png" id="3_fy7iq"]
+
+[node name="Level cleared" type="Node2D"]
+script = ExtResource("1_f7xcr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 38.0
+offset_bottom = 39.0
+
+[node name="Back" type="Button" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 475.0
+offset_top = 378.0
+offset_right = 643.0
+offset_bottom = 426.0
+theme_override_fonts/font = ExtResource("2_4jpot")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="Continue" type="Button" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 408.0
+offset_top = 265.0
+offset_right = 721.0
+offset_bottom = 313.0
+theme_override_fonts/font = ExtResource("2_4jpot")
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.5, 323)
+scale = Vector2(0.74934894, 0.6308594)
+texture = ExtResource("3_fy7iq")
+
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdwqrqqgoxcd8"]
+[gd_scene load_steps=20 format=3 uid="uid://bdwqrqqgoxcd8"]
 
-[ext_resource type="Script" uid="uid://ymp0ik3j8q3a" path="res://game_manager.gd" id="1_gee14"]
+[ext_resource type="Script" uid="uid://bsta8mtdoqvej" path="res://scripts/level_1.gd" id="1_d3jkd"]
+[ext_resource type="Script" uid="uid://ymp0ik3j8q3a" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://cw641eq3ivkge" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bsxr8eaogsva0" path="res://assets/sprites/world_tileset.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ooe21d4cnfh6" path="res://scenes/platform.tscn" id="3_lnu2h"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ceefgvtbvq5uf" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://d3gfrf4m8emhh" path="res://scenes/slime.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://bx2wsx8pi245e" path="res://assets/fonts/PixelOperator8.ttf" id="8_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://dv54uuc2dyhjx" path="res://scenes/levelfinish.tscn" id="10_u3awl"]
 
 [sub_resource type="GDScript" id="GDScript_lnu2h"]
 script/source = "extends CharacterBody2D
@@ -254,7 +256,10 @@ _data = {
 &"move": SubResource("Animation_lnu2h")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_2ku1j"]
+
 [node name="level1" type="Node2D"]
+script = ExtResource("1_d3jkd")
 
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(2, 6)
@@ -359,3 +364,13 @@ up- w,space,up arrow
 left - a,left arrow
 right - d,right arrow
 attack - left click"
+
+[node name="Levelfinish" parent="." instance=ExtResource("10_u3awl")]
+position = Vector2(1144, 134)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1126.0
+offset_top = 78.0
+offset_right = 1166.0
+offset_bottom = 101.0
+label_settings = SubResource("LabelSettings_2ku1j")

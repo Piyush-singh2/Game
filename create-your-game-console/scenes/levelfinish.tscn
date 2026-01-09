@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv54uuc2dyhjx"]
+
+[ext_resource type="Script" uid="uid://dvn5j2wjhi8mh" path="res://scripts/levelfinish.gd" id="1_6gctr"]
+[ext_resource type="Texture2D" uid="uid://bsxr8eaogsva0" path="res://assets/sprites/world_tileset.png" id="2_uy06k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1niog"]
+atlas = ExtResource("2_uy06k")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo4gt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1niog")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftkit"]
+size = Vector2(20, 19)
+
+[node name="Levelfinish" type="Node2D"]
+script = ExtResource("1_6gctr")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(2.3841858e-07, 2.3841858e-07)
+scale = Vector2(1.375, 1.375)
+sprite_frames = SubResource("SpriteFrames_bo4gt")
+frame_progress = 0.1452482
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_ftkit")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
